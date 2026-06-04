@@ -55,4 +55,10 @@
 // Trigger behaviour: 0 = momentary (hold to run), 1 = toggle (press to run/stop).
 #define TRIGGER_TOGGLE_MODE                 0
 
+// BMS frontend architecture selection.
+// BQ7693 is production-ready; OZ93510 support is experimental scaffold mode.
+#define BMS_FRONTEND_BQ7693                 1
+#define BMS_FRONTEND_OZ93510                2
+#define BMS_FRONTEND_ARCH                   BMS_FRONTEND_BQ7693
+
 #endif /* CONFIG_H_ */

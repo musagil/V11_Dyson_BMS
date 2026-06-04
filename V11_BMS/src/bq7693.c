@@ -9,6 +9,8 @@
 
 #include "bq7693.h"
 
+#if BMS_FRONTEND_ARCH == BMS_FRONTEND_BQ7693
+
 void bq7693_i2c_init(void);
 
 //"internal" function primitives
@@ -352,3 +354,5 @@ int16_t bq7693_read_cc(void)
 
   return tempCC;
 }
+
+#endif // BMS_FRONTEND_ARCH == BMS_FRONTEND_BQ7693
