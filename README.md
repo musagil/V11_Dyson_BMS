@@ -49,6 +49,15 @@ The firmware implements the Dyson serial protocol with TLV-based communication.
 | Define | Default | Purpose |
 |--------|---------|---------|
 | `TRIGGER_TOGGLE_MODE` | `0` | Trigger behaviour. `0` = momentary (hold to run, the V11/V15 behaviour). `1` = toggle (each press flips run/stop; hold for ≥1 s to force stop). Set to `1` for the Dyson V12, whose trigger is a click-to-latch button rather than a held switch. |
+| `BMS_FRONTEND_ARCH` | `BMS_FRONTEND_BQ7693` | BMS frontend architecture selector. `BMS_FRONTEND_BQ7693` = TI BQ7693003 production path. `BMS_FRONTEND_OZ93510` = OZ93510 integration scaffold mode. |
+
+### OZ93510 architecture mode
+
+Setting `BMS_FRONTEND_ARCH` to `BMS_FRONTEND_OZ93510` enables an integration scaffold that keeps the firmware buildable while OZ93510 register-level support is completed.
+
+- current behavior is safety-biased (no active charge/discharge FET control)
+- cell/current telemetry is placeholder-only
+- pack operation will remain faulted until full OZ93510 register mapping and validation are implemented
 
 ## Build Toolchain
 
